@@ -12,7 +12,7 @@ while (!isNaN(parseInt(gistName)) || (!gistName)) {
 alert("Welcome" + " " + gistName + " " + "to my portfolio");
 
 // // 2.
-var gistReady = prompt("Now the guessing game will satrt," + " " + gistName + " " + " are u ready?");
+var gistReady = prompt("Now the guessing game will satrt," + " " + gistName + " " + " are u ready?(yes/no)");
 // if the user insert number value, while, do and parseInt will solve the problem
 while (!isNaN(parseInt(gistReady)) || (!gistReady)) {
     gistReady = prompt("Could U plz answer by yes or no");
@@ -28,7 +28,7 @@ switch (gistAnswer_1) {
         break;
     case "N":
     case "NO":
-        alert("why, I made this game 4 U, I am sad :(");
+        alert("why, I made this game 4 U, I am sad :(, even though, The game will start..");
         break;
     default:
         alert("even though, The game will start..");
@@ -45,12 +45,11 @@ while (!isNaN(parseInt(hostCountry)) || (!hostCountry)) {
 alert("yup! I live in" + " " + hostCountry);
 
 // 4.
-var hostHoppy = prompt(gistName + " " + "Do I like to watch movies?!");
+var hostHoppy = prompt(gistName + " " + "Do I like to watch movies?! (yes/no)");
 // if the user insert number value, while, do and parseInt will solve the problem
 while (!isNaN(parseInt(hostHoppy)) || (!hostHoppy)) {
     hostHoppy = prompt("Could U plz answer by yes or no");
 }
-
 // points counter (to count how many correct answers the user do)
 var yourPoints = 0;
 // using tolowercase to validate the user input value if it small or capital letter
@@ -66,13 +65,12 @@ switch (gistAnswer_2) {
     case "n":
         alert("sorry, but yes I do like to watch movies");
         break;
-
     default:
         alert("Who knows..");
 }
 
 // 5.
-var gistReady = prompt(gistName + " " + " Do I like watching Horror movies?");
+var gistReady = prompt(gistName + " " + " Do I like watching Horror movies? (yes/no)");
 // if the user insert number value, while, do and parseInt will solve the problem
 while (!isNaN(parseInt(gistReady)) || (!gistReady)) {
     gistReady = prompt("Could U plz answer by yes or no");
@@ -95,10 +93,12 @@ switch (gistAnswer_1) {
 }
 // -------------------------------------------------------------------------------------------------------------
 // 2nd section lab03
-// in this section of the game I used the If statment, for loops and arrays.
+// in this section of the game I used the If statment, for loops, functions and arrays.
 // 6.
+function yesNo() {
+    
 for (let Age = 0; Age < 4; Age++) {
-    var hostAge = prompt(gistName + " " + "Could you please guess my age (type it in numbers)");
+    var hostAge = prompt(gistName + " " + "Could you please guess my age (type it in numbers), you only have 4 attempts");
     if (hostAge == 26) {
         alert("you got it right, thats my real age.");
         yourPoints += 1;
@@ -110,10 +110,10 @@ for (let Age = 0; Age < 4; Age++) {
         alert("I am younger than that");
     }
 }
-alert("yup, I am 26 years old");
+alert("I am 26 years old");
 // console.log(hostAge);
 
-var questions = ['am I a sea food lover?', 'am I a pet lover', 'am I a good friend'];
+var questions = ['am I a sea food lover? (yes/no)', 'am I a pet lover (yes/no)', 'am I a good friend (yes/no)'];
 var answers = ['yes I am', 'No Im not'];
 
 for (let i = 0; i < questions.length; i++) {
@@ -142,5 +142,16 @@ for (let i = 0; i < questions.length; i++) {
             alert("Who knows..");
     }
 }
-alert("you have owned " + " " + yourPoints + " " + "out of 6 Congrats !!!")
+
+}
+yesNo();
+
+// function multiAnswers() {
+    
+//     var askMe= ["What is My favourite Car?", "Lexus", "Porsche", "Lincoln", "Toyota", 
+//                 "Mercedes-Benz", "Chevrolet", "Audi"];
+// }
+
+// multiAnswers()
+alert("you have owned " + " " + yourPoints + " " + "out of 6 Congrats !!!");
 // console.log(yourPoints);
