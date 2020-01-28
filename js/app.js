@@ -35,19 +35,13 @@ switch (gistAnswer_1) {
 }
 
 // 3.
-var hostCountry = prompt(gistName + " " + "can U plz tell me where I'm living?(plz type a country name)");
-// if the user insert number value which is not valid for a country input 
-// while, do and parseInt will solve the problem
-while (!isNaN(parseInt(hostCountry)) || (!hostCountry)) {
-    hostCountry = prompt("plz insert a valid country");
-}
-// console.log(hostCountry);
-alert("yup! I live in" + " " + hostCountry);
+var hostName = alert(gistName + " " + "My name is Bara'ah ..");
 
 // 4.
 var hostHoppy = prompt(gistName + " " + "Do I like to watch movies?! (yes/no)");
 // if the user insert number value, while, do and parseInt will solve the problem
-while (!isNaN(parseInt(hostHoppy)) || (!hostHoppy)) {
+while (hostHoppy !== 'y' && hostHoppy !== 'yes' && hostHoppy !== 'n' && hostHoppy !== 'no'
+    && hostHoppy !== 'nop' && hostHoppy !== 'yup') {
     hostHoppy = prompt("Could U plz answer by yes or no");
 }
 // points counter (to count how many correct answers the user do)
@@ -58,15 +52,18 @@ var gistAnswer_2 = hostHoppy.toLowerCase();
 switch (gistAnswer_2) {
     case "y":
     case "yes":
+    case "yup":
         alert("yes I do");
         yourPoints += 1;
+        alert("U have got a point, congrats");
         break;
     case "no":
     case "n":
-        alert("sorry, but yes I do like to watch movies");
+    case "nop":
+        alert("sorry, but yes I do like to watch movies, U will not get a point sorry");
         break;
     default:
-        alert("Who knows..");
+        alert("yup I like watching movies");
 }
 
 // 5.
@@ -83,6 +80,7 @@ switch (gistAnswer_1) {
     case "YES":
         alert("yup, I really do like watching Horror movies");
         yourPoints += 1;
+        alert("U have got a point, congrats");
         break;
     case "N":
     case "NO":
@@ -96,62 +94,84 @@ switch (gistAnswer_1) {
 // in this section of the game I used the If statment, for loops, functions and arrays.
 // 6.
 function yesNo() {
-    
-for (let Age = 0; Age < 4; Age++) {
-    var hostAge = prompt(gistName + " " + "Could you please guess my age (type it in numbers), you only have 4 attempts");
-    if (hostAge == 26) {
-        alert("you got it right, thats my real age.");
-        yourPoints += 1;
-        // console.log(hostAge);
-        break;
-    } else if (hostAge < 26) {
-        alert("I am oldar than that");
-    } else {
-        alert("I am younger than that");
-    }
-}
-alert("I am 26 years old");
-// console.log(hostAge);
 
-var questions = ['am I a sea food lover? (yes/no)', 'am I a pet lover (yes/no)', 'am I a good friend (yes/no)'];
-var answers = ['yes I am', 'No Im not'];
-
-for (let i = 0; i < questions.length; i++) {
-    var getQuestions = questions[i];
-    var getAnswers = answers[i];
-
-    var questionShown = prompt(gistName + " " + getQuestions);
-
-    // if the user insert number value, while, do and parseInt will solve the problem
-    while (!isNaN(parseInt(questionShown)) || (!questionShown)) {
-        questionShown = prompt("Could U plz answer by yes or no");
-    }
-    var gistAnswer_3 = questionShown.toUpperCase();
-    console.log(gistAnswer_3);
-    switch (gistAnswer_3) {
-        case "Y":
-        case "YES":
-            alert("great answer" + " " + answers[0]);
+    for (let Age = 0; Age < 4; Age++) {
+        var hostAge = prompt(gistName + " " + "Could you please guess my age (type it in numbers), you only have 4 attempts");
+        if (hostAge == 26) {
+            alert("you got it right, thats my real age.");
             yourPoints += 1;
+            alert("U have got a point, congrats");
+            // console.log(hostAge);
             break;
-        case "N":
-        case "NO":
-            alert("sorry, but yes I do");
-            break;
-        default:
-            alert("Who knows..");
+        } else if (hostAge < 20) {
+            alert("too young, I'm older than that ");
+        }
+        else if (20 <= hostAge < 25) {
+            alert("U are getting close");
+        } else if (hostAge > 26) {
+            alert("I am younger than that");
+        }
     }
-}
+
+    alert("I am 26 years old");
+    // console.log(hostAge);
+
+    // arrays
+    var questions = ['am I a sea food lover? (yes/no)', 'am I a pet lover (yes/no)', 'am I a good friend (yes/no)'];
+    var answers = ['yes I am', 'No Im not'];
+
+    for (let i = 0; i < questions.length; i++) {
+        var getQuestions = questions[i];
+        var getAnswers = answers[i];
+
+        var questionShown = prompt(gistName + " " + getQuestions);
+
+        // if the user insert number value, while, do and parseInt will solve the problem
+        while (questionShown !== 'y' && questionShown !== 'yes' && questionShown !== 'n' && questionShown !== 'no'
+            && questionShown !== 'nop' && questionShown !== 'yup') {
+            questionShown = prompt("Could U plz answer by yes or no");
+        }
+        var gistAnswer_3 = questionShown.toUpperCase();
+        console.log(gistAnswer_3);
+        switch (gistAnswer_3) {
+            case "Y":
+            case "YES":
+            case "YUP":
+                alert("great answer" + " " + answers[0]);
+                yourPoints += 1;
+                alert("U have got a point, congrats");
+                break;
+            case "N":
+            case "NO":
+            case "NOP":
+                alert("sorry, but yes I do");
+                break;
+            default:
+                alert("mmmm.. U dont know me well..");
+        }
+    }
 
 }
 yesNo();
 
-// function multiAnswers() {
-    
-//     var askMe= ["What is My favourite Car?", "Lexus", "Porsche", "Lincoln", "Toyota", 
-//                 "Mercedes-Benz", "Chevrolet", "Audi"];
-// }
+function favCar() {
+    var likeCar = ["Mazarati", "Lexus", "Porsche", "Lincoln", "Toyota",
+        "Mercedes-Benz", "Chevrolet", "Audi"];
+    var gistAnswer = prompt("What is My favourite Car brand?");
+    for (var i = 0; i < 2; i++) {
+        if (gistAnswer == likeCar[i] ) {
+            alert("yes, I like this brand, you will get a point");
+            alert("My fav car brands are Mazarati, Lexus, Porsche, Lincoln, Toyota, Mercedes-Benz, Chevrolet, Audi");
+            // console.log("yup");
+            yourPoints += 1;
+        } else {
+            var animeAnswer = prompt("nop, not my fav");
+            // console.log("nop");
+        }
+    }
+}
+favCar()
 
-// multiAnswers()
-alert("you have owned " + " " + yourPoints + " " + "out of 6 Congrats !!!");
-// console.log(yourPoints);
+alert("you have owned " + " " + yourPoints + " " + "out of 7 Congrats !!!");
+
+

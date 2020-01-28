@@ -89,3 +89,23 @@ footer {
     font-size: 20px;
     width: 100%;
 }
+
+/* ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+} */
+/* lis style
+.column2of2 {
+    float: left;
+    width: 300px;
+    margin: 10px;
+} */
+/* do the liquid layout */
+/* Normal: #3344dd
+Hover/Focus/Active: #bb1122
+Visited: #884488 */
