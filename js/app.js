@@ -1,21 +1,20 @@
 // guessing game
 'use strict';
-// 1st section lab02
-// in this section of the game I used the Var, Prompt, Alert and switch.
-// 1.
-var gistName = prompt('Hello, could U plz tell me Ur name');
+
+var gistName = prompt(
+  'hello, welcome to my profile, could you please tell me your name?'
+);
 // if the user insert invaled or number value, while, do and parseInt will solve the problem
-while (!isNaN(parseInt(gistName)) || !gistName) {
-  gistName = prompt('plz insert a valid name');
+while (!isNaN(parseInt(gistName))) {
+  gistName = prompt('could you please use letters to tell me your name.');
 }
-// console.log(gistName);
+// // console.log(gistName);
 alert('Welcome' + ' ' + gistName + ' ' + 'to my portfolio');
 
-// 2.
 var gistReady = confirm(
   'Now the guessing game will satrt,' + ' ' + gistName + ' ' + ' are u ready?'
 );
-if (gistReady == true) {
+if (gistReady === true) {
   alert('yaay, I like Ur spirit');
 } else {
   alert(
@@ -23,13 +22,28 @@ if (gistReady == true) {
   );
 }
 
-// 3.
-// eslint-disable-next-line no-unused-vars
-var hostName = alert(
-  gistName + ' ' + 'My name is Bara\'ah, I am the programmer for this page'
-);
+//first question
+var firstQ = prompt('Do you think that my name is Bara\'ah?').toUpperCase();
+while (
+  firstQ !== 'N' &&
+  firstQ !== 'NO' &&
+  firstQ !== 'YES' &&
+  firstQ !== 'Y'
+) {
+  firstQ = prompt('Remember its a yes no question').toUpperCase();
+}
 
-// 4.
+switch (firstQ) {
+case 'Y':
+case 'YES':
+  alert('thats correct,' + '  ' + gistName + 'my name is Bara\'ah ');
+  break;
+case 'N':
+case 'NO':
+  alert('mmm, Sorry but my name is Bara\'ah.');
+}
+
+// // second question
 var hostHoppy = prompt(
   gistName + ' ' + 'Do I like to watch movies?! (yes/no)'
 ).toLowerCase();
@@ -43,11 +57,11 @@ while (
   hostHoppy !== 'yup'
 ) {
   // using tolowercase to validate the user input value if it small or capital letter
-  hostHoppy = prompt('Could U plz answer by yes or no').toLowerCase();
+  hostHoppy = prompt('Remember its a Yes/No question').toLowerCase();
 }
-// points counter (to count how many correct answers the user do)
+// // points counter (to count how many correct answers the user do)
 var yourPoints = 0;
-// define the yes/y as possitive answer and no/n as negative answer
+// // define the yes/y as possitive answer and no/n as negative answer
 switch (hostHoppy) {
 case true:
 case 'y':
@@ -69,44 +83,22 @@ default:
   alert('yup I like watching movies');
 }
 
-// 5.
-// using touppercase to validate the user input value if it small or capital letter
-// eslint-disable-next-line no-redeclare
-var gistReady = prompt(
-  gistName + ' ' + ' Do I like watching Horror movies? (yes/no)'.toUpperCase()
-);
-
-// define the yes/y as possitive answer and no/n as negative answer
-switch (gistReady) {
-case true:
-case 'Y':
-case 'YES':
-  alert('yup, I really do like watching Horror movies');
-  yourPoints += 1;
-  alert('U have got a point, congrats');
-  break;
-case false:
-case 'N':
-case 'NO':
-  alert('wthat\'s wrong, sorry But I like watching Horror movies');
-  alert('U have lost a point, sorry');
-  break;
-default:
-  alert(' I like watching Horror movies.');
-}
 // -------------------------------------------------------------------------------------------------------------
-// 2nd section lab03
 // in this section of the game I used the If statment, for loops, functions and arrays.
-// 6.
+//third question 4 oppertonities
+
 function yesNo() {
   for (let Age = 0; Age < 4; Age++) {
     var hostAge = parseInt(
       prompt(
         gistName +
           ' ' +
-          'Could you please guess my age (type it in numbers), you only have 4 attempts'
+          'Could you please guess my age'
       )
     );
+    while (isNaN(hostAge)) {
+      hostAge = parseInt(prompt('Enter my age here'));
+    }
     if (hostAge <= 10) {
       alert('too young, I\'m older than that ');
     } else if (hostAge === 26) {
@@ -162,12 +154,11 @@ for (let i = 0; i < questions.length; i++) {
   case 'N':
   case 'NO':
   case 'NOP':
-    alert('sorry, but yes I do');
+    alert('sorry, but yes I do'+ ' '+ answers[1]);
     break;
   default:
     alert('mmmm.. U dont know me well..');
   }
-  // }
 }
 
 var likeCar = [
@@ -176,22 +167,36 @@ var likeCar = [
   'chevrolet',
   'audi',
   'chevrolet',
-  'mazarati'
+  'mazarati',
+  ' Lexus'
 ];
-var gistAnswer = prompt(
-  'What is My favourite Car brand?' +
-      ' Lincoln, Mercedes-Benz, Chevrolet, Audi'
-).toLowerCase();
-for (var j = 0; j < likeCar.length; j++) {
-  if (gistAnswer === likeCar[j]) {
-    alert('yes, I like this brand, you will get a point');
-    alert(
-      'My fav car brands are Mazarati, Lexus, Porsche, Lincoln, Toyota, Mercedes-Benz, Chevrolet, Audi'
-    );
-    break;
+
+function favCar(){
+  for (let i = 0; i < 6; i++) {
+    var gistAnswer = prompt(
+      'What is My favourite Car brand?' +
+      ' Lincoln, Mazda, Audi'
+    ).toLowerCase();
+    var attemptNum = 0;
+    for (var j = 0; j < likeCar.length; j++) {
+      if (gistAnswer === likeCar[j]) {
+        alert('yes, I like this brand, you will get a point');
+        alert(
+          'My fav car brands are Mazarati, Lexus, Porsche, Lincoln, Toyota, Mercedes-Benz, Chevrolet, Audi'
+        );
+        yourPoints += 1;
+        break;
+      } else {
+        attemptNum = attemptNum + 1;
+      }
+    }
+
+    if (attemptNum > 5) {
+      alert('wrong answer, sorry');
+    } else {
+      break;
+    }
   }
 }
-yourPoints += 1;
-
-
+favCar();
 alert('you have owned ' + ' ' + yourPoints + ' ' + 'out of 6 Congrats !!!');
